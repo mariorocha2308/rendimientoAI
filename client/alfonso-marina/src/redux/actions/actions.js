@@ -1,6 +1,6 @@
 import axios from 'axios' 
 export const GET_EMPLOYEES ='GET_EMPLOY'
-export const SEARCH_EMPLOYEE = 'SEARCH_EMPLOYE'
+export const SEARCH_EMPLOYEE = 'SEARCH_EMPLOYEE'
 
 export const getEmployes = () => {
     return (dispatch)=>{

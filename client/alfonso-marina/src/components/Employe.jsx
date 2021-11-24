@@ -1,31 +1,68 @@
 import './styles/Employe.css'
 import { Link } from 'react-router-dom'
-
-
+import { Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,} from 'chart.js'
+import {Line} from 'react-chartjs-2'
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+)
 const Employe = (props) => {
     //console.log(props.component)
-    const complexSettings = {
-        width: 200,
-        height: 160,
-        type: 'column',
-        data: "P1,5\nP2,3\nP3,6\nP4,4",
-        title: 'Column chart',
-        yAxis: [2, {
-          orientation: 'right',
-          enabled: true,
-          labels: {
-            format: '{%Value}{decimalPoint:\\,}',
-            fontColor: 'red'
-          }
-        }],
-        legend: { 
-          background: 'lightgreen 0.8',
-          padding: 2
+    const options = {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: 'top' ,
         },
-        lineMarker: {
-          value: 4.5
+        title: {
+          display: true,
+          text: props.infoName,
+        },
+      },
+    };
+    
+    const labels = busqueda('createdAt');
+    
+    const data = {
+      labels,
+      datasets: [
+        {
+          label: 'sale_day',
+          data: busqueda('sale_day'),
+          backgroundColor: 'rgba(255, 99, 132, 0.5)',
+        },
+        {
+          label: 'losses_day',
+          data: busqueda('losses_day'),
+          backgroundColor: 'rgba(53, 162, 235, 0.5)',
+        },
+      ],
+    };
+    function busqueda(params){
+      const data = props.data
+      return data.map(dato=>{
+        const datos=`${dato[params]}`
+        if(Math.abs(datos)){
+          //console.log('dentros')
+          return Math.abs(datos)
         }
-      };
+        //console.log()
+        return  datos.substr(0,10)
+      })
+    }
+    
     return ( 
         <div className='__employee'>
             <div className='__employee__person'>
@@ -36,7 +73,8 @@ const Employe = (props) => {
             </div>
             
             <div className='__employee__stadistics'>
-                 {props.component}
+              {props.data==0?<h2>has no registration</h2>:<Line options={options} data={data}  width={300} height={155}/>}
+              
             </div>
             <div className='__employee__more'>
                 <Link to={`/Employe/${props.idEmploye}`}>
