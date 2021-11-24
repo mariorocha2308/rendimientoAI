@@ -7,17 +7,25 @@ const {user,performance} = require('../database/db')
 const {Op} = require('sequelize')
 
 //ruta para ver a todos y hacer busqueda del nombre
-router.get('/',(req,res)=>{
+router.get('/',async (req,res)=>{
     const {name} = req.query
 
     if (name) {
-        let find = await user.findAll({where: {name: {
-            [Op.iLike]: `%${name}%`
-        }}})
+        try {
 
-        if (find) {
+            let find = await user.findAll({where: {firstName: {
+                [Op.like]: `%${name}%`
+            }},
+            attributes:['id','firstName','lastName','email','age','address','image'],
+            include:{
+                model:performance,
+                as:'registration',
+            }
+            })
+
             return res.json(find)
-        } else{
+
+        } catch (error) {   
             return res.json({error: 'USER IS FAILED'})
         }
     }else{
