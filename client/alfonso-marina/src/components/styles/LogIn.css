@@ -1,0 +1,43 @@
+.block_login{
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+    background-color: white;
+    width: 100vw;
+    height: 100vw;
+    position: fixed;
+}
+
+.__login__btn__pop{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(128, 128, 128, 0.068);
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    position: absolute;
+    left: 100px;
+    top: 50px;
+}
+
+.__btn__pop{
+    display: flex;
+    font-size: 25px;
+    color: #1e379988;
+}
+
+.block_login__content{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    height: 100vh;
+    width: 70%;
+}
+
+.__avatar__login{
+    font-size: 90px;
+    color: #1e37997c;
+}
+

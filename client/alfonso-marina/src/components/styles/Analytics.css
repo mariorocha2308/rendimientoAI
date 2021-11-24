@@ -1,0 +1,84 @@
+.block_analytics{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 94%;
+    height: 100vh;
+    position: fixed;
+    right: 0px;
+}
+
+.block_analytics__content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 90%;
+    height: 95vh;
+}
+
+.__search__content{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: rgba(128, 128, 128, 0.068);
+    width: 180px;
+    height: 30px;
+    border-radius: 5px;
+    padding-right: 2px;
+}
+
+.__content__input{
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-family: 'Poppins';
+    width: 130px;
+    color: rgba(0, 0, 0, 0.603);
+    font-weight: bold;
+}
+
+.__content__icons{
+    color: gray;
+}
+
+.__content__cards{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 90%;
+    width: 100%;
+}
+
+.__content__label{
+    font-family: 'Paytone One';
+    color: rgba(0, 0, 0, 0.534);
+    font-size: 38px;
+}
+
+.__cards__employee{
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    justify-content: space-around;
+    height: 90%;
+    width: 100%;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background-color: rgba(0, 0, 0, 0.445);
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.329);
+    border-radius: 10px;
+}

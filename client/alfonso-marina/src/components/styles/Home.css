@@ -1,0 +1,12 @@
+.block_home{
+    width: 94%;
+    height: 97%;
+    position: fixed;
+    right: 0px;
+    bottom: 0px;
+}
+
+.__home__image{
+    width: 450px;
+    height: 450px;
+}

@@ -1,0 +1,9 @@
+.block_setting{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 94%;
+    height: 100vh;
+    position: fixed;
+    right: 0px;
+}
